@@ -1,0 +1,218 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+Testez le nouveau système multiplateforme PowerShell https://aka.ms/pscore6
+
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant init geerlingguy/centos7
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> rm .\Vagrantfile
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant init -m geerlingguy/centos7
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03>
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant validate
+Vagrantfile validated successfully.
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant validate
+Vagrantfile validated successfully.
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Box 'geerlingguy/centos7' could not be found. Attempting to find and install...
+    default: Box Provider: virtualbox
+    default: Box Version: >= 0
+==> default: Loading metadata for box 'geerlingguy/centos7'
+    default: URL: https://vagrantcloud.com/api/v2/vagrant/geerlingguy/centos7
+==> default: Adding box 'geerlingguy/centos7' (v1.2.27) for provider: virtualbox
+    default: Downloading: https://vagrantcloud.com/geerlingguy/boxes/centos7/versions/1.2.27/providers/virtualbox/unknown/vagrant.box
+    default:
+==> default: Successfully added box 'geerlingguy/centos7' (v1.2.27) for 'virtualbox'!
+==> default: Importing base box 'geerlingguy/centos7'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'geerlingguy/centos7' version '1.2.27' is up to date...
+==> default: Setting the name of the VM: lab-03_default_1715796259164_92815
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: Warning: Connection aborted. Retrying...
+    default: Warning: Connection reset. Retrying...
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 6.1.32
+    default: VirtualBox Version: 7.0
+==> default: Mounting shared folders...
+    default: /vagrant => C:/Users/STUXNET/OneDrive/Bureau/vagrant-labs/lab-03
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant status
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant ssh
+[vagrant@localhost ~]$ ls
+[vagrant@localhost ~]$ sudo yuù install nginx
+sudo: yuù: command not found
+[vagrant@localhost ~]$ sudo yum install nginx
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+epel/x86_64/metalink                                 |  69 kB     00:00
+ * base: mirror.cherryservers.com
+ * epel: mirror.nsc.liu.se
+ * extras: mirror.nsc.liu.se
+ * updates: mirror.hostnet.nl
+base                                                 | 3.6 kB     00:00
+epel                                                 | 4.3 kB     00:00
+extras                                               | 2.9 kB     00:00
+updates                                              | 2.9 kB     00:00
+epel/x86_64/updateinfo         FAILED
+
+http://mirror.nsc.liu.se/fedora-epel/7/x86_64/repodata/ad811c225f495876941b0800ea444074e743c3a865bb6aee52bc8d9dad831ee4-updateinfo.xml.bz2: [Errno 14] HTTP Error 404 - Not Found
+Trying other mirror.
+To address this issue please refer to the below wiki article
+
+https://wiki.centos.org/yum-errors
+
+If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
+
+(1/7): base/7/x86_64/group_gz                          | 153 kB   00:01
+(2/7): extras/7/x86_64/primary_db                      | 253 kB   00:05
+(3/7): epel/x86_64/group                               | 399 kB   00:10
+(4/7): epel/x86_64/updateinfo                          | 1.0 MB   00:25
+updates/7/x86_64/primary_db    FAILED
+
+http://mirror.hostnet.nl/centos/7.9.2009/updates/x86_64/repodata/52c5dbf32d1549111153e47fd493a976f3273327364606be10962af3bccae78b-primary.sqlite.bz2: [Errno 12] Timeout on http://mirror.hostnet.nl/centos/7.9.2009/updates/x86_64/repodata/52c5dbf32d1549111153e47fd493a976f3273327364606be10962af3bccae78b-primary.sqlite.bz2: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+epel/x86_64/primary_db         FAILED
+
+https://it2.mirror.vhosting-it.com/epel/7/x86_64/repodata/c4625cb4ec3b01832af011269449bd948034eb0f9f403b79dfffe1f05adcd1db-primary.sqlite.gz: [Errno 12] Timeout on https://it2.mirror.vhosting-it.com/epel/7/x86_64/repodata/c4625cb4ec3b01832af011269449bd948034eb0f9f403b79dfffe1f05adcd1db-primary.sqlite.gz: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+(5/7): base/7/x86_64/primary_db                        | 6.1 MB   01:13
+(6/7): epel/x86_64/primary_db                          | 8.7 MB   02:16
+(7/7): updates/7/x86_64/primary_db                     |  27 MB   06:13
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.20.1-10.el7 will be installed
+--> Processing Dependency: nginx-filesystem = 1:1.20.1-10.el7 for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: libcrypto.so.1.1(OPENSSL_1_1_0)(64bit) for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: libssl.so.1.1(OPENSSL_1_1_0)(64bit) for package:1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: libssl.so.1.1(OPENSSL_1_1_1)(64bit) for package:1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: nginx-filesystem for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: redhat-indexhtml for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: libcrypto.so.1.1()(64bit) for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: libprofiler.so.0()(64bit) for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Processing Dependency: libssl.so.1.1()(64bit) for package: 1:nginx-1.20.1-10.el7.x86_64
+--> Running transaction check
+---> Package centos-indexhtml.noarch 0:7-9.el7.centos will be installed
+---> Package gperftools-libs.x86_64 0:2.6.1-1.el7 will be installed
+---> Package nginx-filesystem.noarch 1:1.20.1-10.el7 will be installed
+---> Package openssl11-libs.x86_64 1:1.1.1k-7.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================
+ Package                Arch         Version               Repository  Size
+============================================================================
+Installing:
+ nginx                  x86_64       1:1.20.1-10.el7       epel       588 k
+Installing for dependencies:
+ centos-indexhtml       noarch       7-9.el7.centos        base        92 k
+ gperftools-libs        x86_64       2.6.1-1.el7           base       272 k
+ nginx-filesystem       noarch       1:1.20.1-10.el7       epel        24 k
+ openssl11-libs         x86_64       1:1.1.1k-7.el7        epel       1.5 M
+
+Transaction Summary
+============================================================================
+Install  1 Package (+4 Dependent packages)
+
+Total download size: 2.4 M
+Installed size: 6.7 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/5): centos-indexhtml-7-9.el7.centos.noarch.rpm      |  92 kB   00:00
+(2/5): nginx-filesystem-1.20.1-10.el7.noarch.rpm       |  24 kB   00:01
+(3/5): openssl11-libs-1.1.1k-7.el7.x86_64.rpm          | 1.5 MB   00:14
+(4/5): gperftools-libs-2.6.1-1.el7.x86_64.rpm          | 272 kB   00:24
+(5/5): nginx-1.20.1-10.el7.x86_64.rpm                  | 588 kB   00:26
+----------------------------------------------------------------------------
+Total                                           93 kB/s | 2.4 MB  00:26
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:openssl11-libs-1.1.1k-7.el7.x86_64                     1/5
+  Installing : 1:nginx-filesystem-1.20.1-10.el7.noarch                  2/5
+  Installing : centos-indexhtml-7-9.el7.centos.noarch                   3/5
+  Installing : gperftools-libs-2.6.1-1.el7.x86_64                       4/5
+  Installing : 1:nginx-1.20.1-10.el7.x86_64                             5/5
+  Verifying  : gperftools-libs-2.6.1-1.el7.x86_64                       1/5
+  Verifying  : centos-indexhtml-7-9.el7.centos.noarch                   2/5
+  Verifying  : 1:nginx-filesystem-1.20.1-10.el7.noarch                  3/5
+  Verifying  : 1:nginx-1.20.1-10.el7.x86_64                             4/5
+  Verifying  : 1:openssl11-libs-1.1.1k-7.el7.x86_64                     5/5
+Installed:
+  nginx.x86_64 1:1.20.1-10.el7
+
+Dependency Installed:
+  centos-indexhtml.noarch 0:7-9.el7.centos
+  gperftools-libs.x86_64 0:2.6.1-1.el7
+  nginx-filesystem.noarch 1:1.20.1-10.el7
+  openssl11-libs.x86_64 1:1.1.1k-7.el7
+
+Complete!
+[vagrant@localhost ~]$ sudo systemctl start ngnix
+Failed to start ngnix.service: Unit not found.
+[vagrant@localhost ~]$ sudo systemctl start nginx
+[vagrant@localhost ~]$ sudo systemctl status nginx
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2024-05-15 19:03:55 UTC; 6s ago
+  Process: 9731 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)
+  Process: 9727 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)
+  Process: 9725 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)
+ Main PID: 9732 (nginx)
+   CGroup: /system.slice/nginx.service
+           ├─9732 nginx: master process /usr/sbin/nginx
+           ├─9733 nginx: worker process
+           └─9734 nginx: worker process
+
+May 15 19:03:55 localhost.localdomain systemd[1]: Starting The nginx HTTP...
+May 15 19:03:55 localhost.localdomain nginx[9727]: nginx: the configurati...
+May 15 19:03:55 localhost.localdomain nginx[9727]: nginx: configuration f...
+May 15 19:03:55 localhost.localdomain systemd[1]: Started The nginx HTTP ...
+Hint: Some lines were ellipsized, use -l to show in full.
+[vagrant@localhost ~]$ vagrant destroy -f
+-bash: vagrant: command not found
+[vagrant@localhost ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03> vagrant destroy -f
+==> default: Forcing shutdown of VM...
+==> default: Destroying VM and associated drives...
+PS C:\Users\STUXNET\OneDrive\Bureau\vagrant-labs\lab-03>
