@@ -33,7 +33,9 @@ sudo systemctl enable docker
 check_success
 
 # Téléchargement de Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo snap install docker-compose
+
 check_success
 
 # Ajout des permissions d'exécution à Docker Compose
@@ -44,8 +46,8 @@ check_success
 docker-compose --version
 check_success
 
-echo 'For this Stack, you will use 192.168.50.4 IP Address'
-echo 'login : user and password : bitnami'
+echo 'Pour cette installation, vous utiliserez l'adresse IP 192.168.50.4'
+echo 'Identifiant : utilisateur et mot de passe : bitnami'
 
 # Script de vérification pour s'assurer que Docker et Docker Compose sont bien installés et fonctionnent correctement
 echo "Vérification de Docker..."
