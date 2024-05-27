@@ -118,19 +118,20 @@ vagrant destroy -f
   ```
 
 - **Lancez Vagrant**
+
   ```sh
   vagrant up
   ```
 
 - **Accédez à la page par défaut de nginx via le navigateur**
+
   ```http
   http://10.0.0.10
   ```
 
 - **Arrêtez et supprimez la VM**
+
   ```sh
   vagrant halt
   vagrant destroy -f
   ```
-
-Si tu as des questions ou des difficultés à un moment donné, n'hésite pas à demander !
