@@ -1,0 +1,19 @@
+---
+- name: Installer et démarrer nginx
+  hosts: all
+  become: yes
+  tasks:
+    - name: Mettre à jour les paquets APT
+      apt:
+        update_cache: yes
+    
+    - name: Installer nginx
+      apt:
+        name: nginx
+        state: present
+    
+    - name: Démarrer nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
